@@ -1,0 +1,5 @@
+*.sublime*
+*.mp4
+__pycache__
+*.gif
+

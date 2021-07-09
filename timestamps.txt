@@ -1,0 +1,76 @@
+groove:
+195500
+198350
+
+excusez:
+202700
+204300
+
+boom baby:
+235000
+237300
+
+berk berk berk:
+248500
+250500
+
+laisse moi deviner, toi tu es très intelligente:
+250700
+254000
+
+kronk se tape:
+356000
+358000
+
+ça vous auriez dû y réflechir:
+374250
+378000
+
+qu'on l'emmène:
+379000
+380750
+
+d'accord:
+382500
+384500
+
+Yzma frustrée:
+387000
+390550
+
+pas toucher:
+425000
+428000
+
+Yzma supplie:
+453250
+454000
+
+Yzma grogne:
+467000
+469000
+
+Mais oui c'est ça Kronk:
+472000
+473600
+
+Kronk biscuits
+474900
+476000
+
+Kronk plonge
+476000
+477500
+
+Bouhou qu'il est vilain le lama
+Méchant Lama!
+2392750
+2395750
+
+Non seulement t'es moche mais en plus t'es stupide
+2399500
+2401600
+
+La coupe est pleine, j'arrête tout!
+2971500
+2977250
