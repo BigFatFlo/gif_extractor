@@ -49,52 +49,52 @@ def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_l
     print("Done")
 
 
-class FramesSelector():
-    def __init__(self, video, window):
+class FrameSelectorUI():
+    def __init__(self, time_edit, frame_label, previous_button, next_button):
+        self.time_edit = time_edit
+        self.frame_label = frame_label
+        self.previous_button = previous_button
+        self.next_button = next_button
+
+
+class FrameSelector():
+    def __init__(self, video, frame_selector_ui):
         self.video = video
-        self.start_time_edit = window.ui.startTimeLineEdit
-        self.end_time_edit = window.ui.endTimeLineEdit
-        self.start_frame_label = window.ui.startFrameLabel
-        self.end_frame_label = window.ui.endFrameLabel
-        self.previous_start_frame_button = window.ui.previousStartFrameButton
-        self.next_start_frame_button = window.ui.nextStartFrameButton
-        self.previous_end_frame_button = window.ui.previousEndFrameButton
-        self.next_end_frame_button = window.ui.nextEndFrameButton
-        self.start_time_edit.returnPressed.connect(lambda: self.update_frame(self.start_time_edit, self.start_frame_label))
-        self.end_time_edit.returnPressed.connect(lambda: self.update_frame(self.end_time_edit, self.end_frame_label))
-        self.previous_start_frame_button.clicked.connect(lambda: self.update_start_frame_time(self.start_time_edit, -1))
-        self.next_start_frame_button.clicked.connect(lambda: self.update_start_frame_time(self.start_time_edit, 1))
-        self.previous_end_frame_button.clicked.connect(lambda: self.update_end_frame_time(self.end_time_edit, -1))
-        self.next_end_frame_button.clicked.connect(lambda: self.update_end_frame_time(self.end_time_edit, 1))
-        self.update_frame(self.start_time_edit, self.start_frame_label)
-        self.update_frame(self.end_time_edit, self.end_frame_label)
+        self.ui = frame_selector_ui
+        self.ui.time_edit.returnPressed.connect(self.new_frame)
+        self.ui.previous_button.clicked.connect(self.previous_frame)
+        self.ui.next_button.clicked.connect(self.next_frame)
+        self.new_frame()
 
-    def update_start_frame_time(self, edit, increment):
-        current_time = int(edit.text())
-        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
-        ms_per_frame = int((1000/frame_rate_s))
-        new_time = max(current_time + increment*ms_per_frame, 0)
-        edit.setText(str(new_time))
-        self.update_frame(edit, self.start_frame_label)
-
-    def update_end_frame_time(self, edit, increment):
-        current_time = int(edit.text())
-        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
-        ms_per_frame = int((1000/frame_rate_s))
-        new_time = max(current_time + increment*ms_per_frame, 0)
-        edit.setText(str(new_time))
-        self.update_frame(edit, self.end_frame_label)
-
-    def update_frame(self, edit, label):
-        time = int(edit.text())
+    def new_frame(self):
+        time = int(self.ui.time_edit.text())
         self.video.set(cv2.CAP_PROP_POS_MSEC, time)
+        self.display_frame()
+
+    def next_frame(self):
+        current_time = int(self.ui.time_edit.text())
+        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
+        ms_per_frame = int((1000/frame_rate_s))
+        new_time = current_time + ms_per_frame
+        self.ui.time_edit.setText(str(new_time))
+        self.display_frame()
+
+    def previous_frame(self):
+        current_time = int(self.ui.time_edit.text())
+        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
+        ms_per_frame = int((1000/frame_rate_s))
+        new_time = max(current_time - ms_per_frame, 0)
+        self.ui.time_edit.setText(str(new_time))
+        self.new_frame()
+
+    def display_frame(self):
         ret, frame = self.video.read()
         frame = cv2.resize(frame, (304, 180), interpolation = cv2.INTER_AREA)
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB);
         pixmap = QPixmap(304, 180)
         imgQ = QImage(frame, 304, 180, QImage.Format_RGB888)
         pixmap.convertFromImage(imgQ, Qt.ColorOnly)
-        label.setPixmap(pixmap)
+        self.ui.frame_label.setPixmap(pixmap)
 
 
 if __name__ == "__main__":
@@ -112,11 +112,21 @@ if __name__ == "__main__":
     gif_name_edit = window.ui.gifNameTextEdit
     extract_button = window.ui.extractButton
 
-    frames_selector = FramesSelector(video, window)
+    start_frame_ui = FrameSelectorUI(window.ui.startTimeLineEdit,
+                                     window.ui.startFrameLabel,
+                                     window.ui.previousStartFrameButton,
+                                     window.ui.nextStartFrameButton)
+    end_frame_ui = FrameSelectorUI(window.ui.endTimeLineEdit,
+                                     window.ui.endFrameLabel,
+                                     window.ui.previousEndFrameButton,
+                                     window.ui.nextEndFrameButton)
 
-    extract_button.clicked.connect(lambda: launch_extraction(video,
-                                                             int(start_time_edit.text()),
-                                                             int(end_time_edit.text()),
+    start_frame_selector = FrameSelector(cv2.VideoCapture('./test_video.mp4'), start_frame_ui)
+    end_frame_selector = FrameSelector(cv2.VideoCapture('./test_video.mp4'), end_frame_ui)
+
+    extract_button.clicked.connect(lambda: launch_extraction(cv2.VideoCapture('./test_video.mp4'),
+                                                             int(start_frame_selector.ui.time_edit.text()),
+                                                             int(end_frame_selector.ui.time_edit.text()),
                                                              top_line_text_edit.toPlainText(),
                                                              bottom_line_text_edit.toPlainText(),
                                                              gif_name_edit.toPlainText()))
