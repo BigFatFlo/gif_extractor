@@ -164,13 +164,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.gifNameLabel, 0, Qt.AlignHCenter)
 
-        self.gifNameTextEdit = QTextEdit(self.centralwidget)
-        self.gifNameTextEdit.setObjectName(u"gifNameTextEdit")
-        self.gifNameTextEdit.setMinimumSize(QSize(200, 25))
-        self.gifNameTextEdit.setMaximumSize(QSize(200, 25))
-        self.gifNameTextEdit.setTabChangesFocus(True)
+        self.gifNameLineEdit = QLineEdit(self.centralwidget)
+        self.gifNameLineEdit.setObjectName(u"gifNameLineEdit")
+        self.gifNameLineEdit.setMinimumSize(QSize(200, 25))
+        self.gifNameLineEdit.setMaximumSize(QSize(200, 25))
 
-        self.verticalLayout.addWidget(self.gifNameTextEdit, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.gifNameLineEdit, 0, Qt.AlignHCenter)
 
         self.extractButton = QPushButton(self.centralwidget)
         self.extractButton.setObjectName(u"extractButton")
@@ -208,6 +207,7 @@ class Ui_MainWindow(object):
         self.topLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Top Line Text", None))
         self.bottomLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Bottom Line Text", None))
         self.gifNameLabel.setText(QCoreApplication.translate("MainWindow", u"Gif name", None))
+        self.gifNameLineEdit.setText("")
         self.extractButton.setText(QCoreApplication.translate("MainWindow", u"Extract", None))
     # retranslateUi
 

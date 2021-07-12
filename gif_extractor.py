@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     top_line_text_edit = window.ui.topLineTextEdit
     bottom_line_text_edit = window.ui.bottomLineTextEdit
-    gif_name_edit = window.ui.gifNameTextEdit
+    gif_name_edit = window.ui.gifNameLineEdit
     extract_button = window.ui.extractButton
 
     start_frame_ui = FrameSelectorUI(window.ui.startTimeLineEdit,
@@ -146,10 +146,17 @@ if __name__ == "__main__":
     end_frame_selector = FrameSelector(cv2.VideoCapture('./test_video.mp4'), end_frame_ui)
 
     extract_button.clicked.connect(lambda: launch_extraction(cv2.VideoCapture('./test_video.mp4'),
-                                                             int(start_frame_selector.ui.time_edit.text()),
-                                                             int(end_frame_selector.ui.time_edit.text()),
+                                                             get_ms_from_timestamp(start_frame_selector.ui.time_edit.text()),
+                                                             get_ms_from_timestamp(end_frame_selector.ui.time_edit.text()),
                                                              top_line_text_edit.toPlainText(),
                                                              bottom_line_text_edit.toPlainText(),
-                                                             gif_name_edit.toPlainText()))
+                                                             gif_name_edit.text()))
+
+    gif_name_edit.returnPressed.connect(lambda: launch_extraction(cv2.VideoCapture('./test_video.mp4'),
+                                                                  get_ms_from_timestamp(start_frame_selector.ui.time_edit.text()),
+                                                                  get_ms_from_timestamp(end_frame_selector.ui.time_edit.text()),
+                                                                  top_line_text_edit.toPlainText(),
+                                                                  bottom_line_text_edit.toPlainText(),
+                                                                  gif_name_edit.text()))
 
     sys.exit(app.exec_())

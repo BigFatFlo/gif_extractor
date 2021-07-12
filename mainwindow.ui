@@ -340,7 +340,7 @@
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
-     <widget class="QTextEdit" name="gifNameTextEdit">
+     <widget class="QLineEdit" name="gifNameLineEdit">
       <property name="minimumSize">
        <size>
         <width>200</width>
@@ -353,8 +353,8 @@
         <height>25</height>
        </size>
       </property>
-      <property name="tabChangesFocus">
-       <bool>true</bool>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
