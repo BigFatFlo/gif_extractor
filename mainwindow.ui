@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>532</width>
+    <width>740</width>
     <height>649</height>
    </rect>
   </property>
@@ -41,8 +41,54 @@
           </property>
          </widget>
         </item>
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLineEdit" name="startTimeLineEdit">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
         <item>
-         <widget class="QLineEdit" name="startTimeLineEdit"/>
+         <layout class="QHBoxLayout" name="startFrameButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="previousStartFrameButton">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Previous Frame</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="nextStartFrameButton">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Next Frame</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -93,7 +139,7 @@
           </property>
          </widget>
         </item>
-        <item>
+        <item alignment="Qt::AlignHCenter">
          <widget class="QLineEdit" name="endTimeLineEdit">
           <property name="minimumSize">
            <size>
@@ -107,7 +153,52 @@
             <height>25</height>
            </size>
           </property>
+          <property name="text">
+           <string>0</string>
+          </property>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="endFrameButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="previousEndFrameButton">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Previous Frame</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="nextEndFrameButton">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Next Frame</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -132,7 +223,7 @@
       </item>
      </layout>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QLabel" name="topLineTextLabel">
       <property name="minimumSize">
        <size>
@@ -154,7 +245,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QTextEdit" name="topLineTextEdit">
       <property name="minimumSize">
        <size>
@@ -173,7 +264,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QLabel" name="bottomLineTextLabel">
       <property name="minimumSize">
        <size>
@@ -195,7 +286,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QTextEdit" name="bottomLineTextEdit">
       <property name="minimumSize">
        <size>
@@ -214,7 +305,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QLabel" name="gifNameLabel">
       <property name="minimumSize">
        <size>
@@ -236,7 +327,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QTextEdit" name="gifNameTextEdit">
       <property name="minimumSize">
        <size>
@@ -255,7 +346,7 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QPushButton" name="extractButton">
       <property name="minimumSize">
        <size>
@@ -281,7 +372,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>532</width>
+     <width>740</width>
      <height>22</height>
     </rect>
    </property>

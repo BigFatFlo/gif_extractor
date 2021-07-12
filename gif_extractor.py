@@ -49,15 +49,52 @@ def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_l
     print("Done")
 
 
-def update_frame(frame_label, video, time):
-    video.set(cv2.CAP_PROP_POS_MSEC, time)
-    ret, frame = video.read()
-    frame = cv2.resize(frame, (304, 180), interpolation = cv2.INTER_AREA)
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB);
-    pixmap = QPixmap(304, 180)
-    imgQ = QImage(frame, 304, 180, QImage.Format_RGB888)
-    pixmap.convertFromImage(imgQ, Qt.ColorOnly)
-    frame_label.setPixmap(pixmap)
+class FramesSelector():
+    def __init__(self, video, window):
+        self.video = video
+        self.start_time_edit = window.ui.startTimeLineEdit
+        self.end_time_edit = window.ui.endTimeLineEdit
+        self.start_frame_label = window.ui.startFrameLabel
+        self.end_frame_label = window.ui.endFrameLabel
+        self.previous_start_frame_button = window.ui.previousStartFrameButton
+        self.next_start_frame_button = window.ui.nextStartFrameButton
+        self.previous_end_frame_button = window.ui.previousEndFrameButton
+        self.next_end_frame_button = window.ui.nextEndFrameButton
+        self.start_time_edit.returnPressed.connect(lambda: self.update_frame(self.start_time_edit, self.start_frame_label))
+        self.end_time_edit.returnPressed.connect(lambda: self.update_frame(self.end_time_edit, self.end_frame_label))
+        self.previous_start_frame_button.clicked.connect(lambda: self.update_start_frame_time(self.start_time_edit, -1))
+        self.next_start_frame_button.clicked.connect(lambda: self.update_start_frame_time(self.start_time_edit, 1))
+        self.previous_end_frame_button.clicked.connect(lambda: self.update_end_frame_time(self.end_time_edit, -1))
+        self.next_end_frame_button.clicked.connect(lambda: self.update_end_frame_time(self.end_time_edit, 1))
+        self.update_frame(self.start_time_edit, self.start_frame_label)
+        self.update_frame(self.end_time_edit, self.end_frame_label)
+
+    def update_start_frame_time(self, edit, increment):
+        current_time = int(edit.text())
+        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
+        ms_per_frame = int((1000/frame_rate_s))
+        new_time = max(current_time + increment*ms_per_frame, 0)
+        edit.setText(str(new_time))
+        self.update_frame(edit, self.start_frame_label)
+
+    def update_end_frame_time(self, edit, increment):
+        current_time = int(edit.text())
+        frame_rate_s = video.get(cv2.CAP_PROP_FPS)
+        ms_per_frame = int((1000/frame_rate_s))
+        new_time = max(current_time + increment*ms_per_frame, 0)
+        edit.setText(str(new_time))
+        self.update_frame(edit, self.end_frame_label)
+
+    def update_frame(self, edit, label):
+        time = int(edit.text())
+        self.video.set(cv2.CAP_PROP_POS_MSEC, time)
+        ret, frame = self.video.read()
+        frame = cv2.resize(frame, (304, 180), interpolation = cv2.INTER_AREA)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB);
+        pixmap = QPixmap(304, 180)
+        imgQ = QImage(frame, 304, 180, QImage.Format_RGB888)
+        pixmap.convertFromImage(imgQ, Qt.ColorOnly)
+        label.setPixmap(pixmap)
 
 
 if __name__ == "__main__":
@@ -70,17 +107,12 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
 
-    start_time_edit = window.ui.startTimeLineEdit
-    end_time_edit = window.ui.endTimeLineEdit
     top_line_text_edit = window.ui.topLineTextEdit
     bottom_line_text_edit = window.ui.bottomLineTextEdit
     gif_name_edit = window.ui.gifNameTextEdit
     extract_button = window.ui.extractButton
-    start_frame_label = window.ui.startFrameLabel
-    end_frame_label = window.ui.endFrameLabel
 
-    start_time_edit.returnPressed.connect(lambda : update_frame(start_frame_label, video, int(start_time_edit.text())))
-    end_time_edit.returnPressed.connect(lambda : update_frame(end_frame_label, video, int(end_time_edit.text())))
+    frames_selector = FramesSelector(video, window)
 
     extract_button.clicked.connect(lambda: launch_extraction(video,
                                                              int(start_time_edit.text()),

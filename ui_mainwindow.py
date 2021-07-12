@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(532, 649)
+        MainWindow.resize(740, 649)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -37,7 +37,26 @@ class Ui_MainWindow(object):
         self.startTimeLineEdit = QLineEdit(self.centralwidget)
         self.startTimeLineEdit.setObjectName(u"startTimeLineEdit")
 
-        self.startTimeLayout.addWidget(self.startTimeLineEdit)
+        self.startTimeLayout.addWidget(self.startTimeLineEdit, 0, Qt.AlignHCenter)
+
+        self.startFrameButtonsLayout = QHBoxLayout()
+        self.startFrameButtonsLayout.setObjectName(u"startFrameButtonsLayout")
+        self.previousStartFrameButton = QPushButton(self.centralwidget)
+        self.previousStartFrameButton.setObjectName(u"previousStartFrameButton")
+        self.previousStartFrameButton.setMinimumSize(QSize(200, 25))
+        self.previousStartFrameButton.setMaximumSize(QSize(200, 25))
+
+        self.startFrameButtonsLayout.addWidget(self.previousStartFrameButton)
+
+        self.nextStartFrameButton = QPushButton(self.centralwidget)
+        self.nextStartFrameButton.setObjectName(u"nextStartFrameButton")
+        self.nextStartFrameButton.setMinimumSize(QSize(200, 25))
+        self.nextStartFrameButton.setMaximumSize(QSize(200, 25))
+
+        self.startFrameButtonsLayout.addWidget(self.nextStartFrameButton)
+
+
+        self.startTimeLayout.addLayout(self.startFrameButtonsLayout)
 
 
         self.startFrameLayout.addLayout(self.startTimeLayout)
@@ -69,7 +88,26 @@ class Ui_MainWindow(object):
         self.endTimeLineEdit.setMinimumSize(QSize(200, 25))
         self.endTimeLineEdit.setMaximumSize(QSize(200, 25))
 
-        self.endTimeLayout.addWidget(self.endTimeLineEdit)
+        self.endTimeLayout.addWidget(self.endTimeLineEdit, 0, Qt.AlignHCenter)
+
+        self.endFrameButtonsLayout = QHBoxLayout()
+        self.endFrameButtonsLayout.setObjectName(u"endFrameButtonsLayout")
+        self.previousEndFrameButton = QPushButton(self.centralwidget)
+        self.previousEndFrameButton.setObjectName(u"previousEndFrameButton")
+        self.previousEndFrameButton.setMinimumSize(QSize(200, 25))
+        self.previousEndFrameButton.setMaximumSize(QSize(200, 25))
+
+        self.endFrameButtonsLayout.addWidget(self.previousEndFrameButton)
+
+        self.nextEndFrameButton = QPushButton(self.centralwidget)
+        self.nextEndFrameButton.setObjectName(u"nextEndFrameButton")
+        self.nextEndFrameButton.setMinimumSize(QSize(200, 25))
+        self.nextEndFrameButton.setMaximumSize(QSize(200, 25))
+
+        self.endFrameButtonsLayout.addWidget(self.nextEndFrameButton)
+
+
+        self.endTimeLayout.addLayout(self.endFrameButtonsLayout)
 
 
         self.endFrameLayout.addLayout(self.endTimeLayout)
@@ -90,7 +128,7 @@ class Ui_MainWindow(object):
         self.topLineTextLabel.setMaximumSize(QSize(200, 25))
         self.topLineTextLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.topLineTextLabel, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.topLineTextLabel)
 
         self.topLineTextEdit = QTextEdit(self.centralwidget)
         self.topLineTextEdit.setObjectName(u"topLineTextEdit")
@@ -98,7 +136,7 @@ class Ui_MainWindow(object):
         self.topLineTextEdit.setMaximumSize(QSize(400, 25))
         self.topLineTextEdit.setTabChangesFocus(True)
 
-        self.verticalLayout.addWidget(self.topLineTextEdit, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.topLineTextEdit)
 
         self.bottomLineTextLabel = QLabel(self.centralwidget)
         self.bottomLineTextLabel.setObjectName(u"bottomLineTextLabel")
@@ -106,7 +144,7 @@ class Ui_MainWindow(object):
         self.bottomLineTextLabel.setMaximumSize(QSize(200, 25))
         self.bottomLineTextLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.bottomLineTextLabel, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.bottomLineTextLabel)
 
         self.bottomLineTextEdit = QTextEdit(self.centralwidget)
         self.bottomLineTextEdit.setObjectName(u"bottomLineTextEdit")
@@ -114,7 +152,7 @@ class Ui_MainWindow(object):
         self.bottomLineTextEdit.setMaximumSize(QSize(400, 25))
         self.bottomLineTextEdit.setTabChangesFocus(True)
 
-        self.verticalLayout.addWidget(self.bottomLineTextEdit, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.bottomLineTextEdit)
 
         self.gifNameLabel = QLabel(self.centralwidget)
         self.gifNameLabel.setObjectName(u"gifNameLabel")
@@ -122,7 +160,7 @@ class Ui_MainWindow(object):
         self.gifNameLabel.setMaximumSize(QSize(200, 25))
         self.gifNameLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.gifNameLabel, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.gifNameLabel)
 
         self.gifNameTextEdit = QTextEdit(self.centralwidget)
         self.gifNameTextEdit.setObjectName(u"gifNameTextEdit")
@@ -130,19 +168,19 @@ class Ui_MainWindow(object):
         self.gifNameTextEdit.setMaximumSize(QSize(200, 25))
         self.gifNameTextEdit.setTabChangesFocus(True)
 
-        self.verticalLayout.addWidget(self.gifNameTextEdit, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.gifNameTextEdit)
 
         self.extractButton = QPushButton(self.centralwidget)
         self.extractButton.setObjectName(u"extractButton")
         self.extractButton.setMinimumSize(QSize(200, 25))
         self.extractButton.setMaximumSize(QSize(200, 25))
 
-        self.verticalLayout.addWidget(self.extractButton, 0, Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.extractButton)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 532, 22))
+        self.menubar.setGeometry(QRect(0, 0, 740, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -156,8 +194,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.startTimeLabel.setText(QCoreApplication.translate("MainWindow", u"Start Time", None))
+        self.startTimeLineEdit.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.previousStartFrameButton.setText(QCoreApplication.translate("MainWindow", u"Previous Frame", None))
+        self.nextStartFrameButton.setText(QCoreApplication.translate("MainWindow", u"Next Frame", None))
         self.startFrameLabel.setText(QCoreApplication.translate("MainWindow", u"Start Frame", None))
         self.endTimeLabel.setText(QCoreApplication.translate("MainWindow", u"End Time", None))
+        self.endTimeLineEdit.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.previousEndFrameButton.setText(QCoreApplication.translate("MainWindow", u"Previous Frame", None))
+        self.nextEndFrameButton.setText(QCoreApplication.translate("MainWindow", u"Next Frame", None))
         self.endFrameLabel.setText(QCoreApplication.translate("MainWindow", u"EndFrame", None))
         self.topLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Top Line Text", None))
         self.bottomLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Bottom Line Text", None))
