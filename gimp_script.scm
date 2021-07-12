@@ -1,5 +1,5 @@
 (define
-    (convert-to-gif nb_of_frames top_line_text bottom_line_text gif_name)
+    (convert-to-gif nb_of_frames top_line_text bottom_line_text text_size line_spacing gif_name)
 (
     (let*
         (
@@ -16,12 +16,12 @@
          (file_path (string-append "/home/fremis/Perso/gif_extractor/" file_name))
         )
         (set! text (string-append (string-append top_line_text "\n") bottom_line_text))
-        (set! text_layer_id (car (gimp-text-layer-new image_id "placeholder" "Impact Condensed" 50 0)))
+        (set! text_layer_id (car (gimp-text-layer-new image_id "placeholder" "Impact Condensed" text_size 0)))
         (gimp-image-insert-layer image_id text_layer_id 0 0)
         (gimp-text-layer-resize text_layer_id 608 360)
         (gimp-text-layer-set-text text_layer_id text)
         (gimp-text-layer-set-color text_layer_id '(255 255 255))
-        (gimp-text-layer-set-line-spacing text_layer_id 235)
+        (gimp-text-layer-set-line-spacing text_layer_id line_spacing)
         (gimp-text-layer-set-justification text_layer_id TEXT-JUSTIFY-CENTER)
         (gimp-layer-resize-to-image-size text_layer_id)
         (while (< frame_nb nb_of_frames)

@@ -34,18 +34,29 @@ def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_l
     print("nb_of_frames = {}".format(nb_of_frames))
     video.set(cv2.CAP_PROP_POS_MSEC, start_time_ms)
     while(video.isOpened() and ret):
+        if i == nb_of_frames:
+            break
         ret, frame = video.read()
         frame = cv2.resize(frame, (608, 360), interpolation = cv2.INTER_AREA)
         cv2.imwrite('frame_'+str(i)+'.jpg',frame)
         i+=1
-        if i == nb_of_frames:
-            break
         print("Processing image n°{}".format(i))
 
     video.release()
     cv2.destroyAllWindows()
 
-    output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, gif_name])
+    text_size = 50
+    line_spacing = 235
+    max_line_length = max(len(top_line_text), len(bottom_line_text))
+    if max_line_length > 0:
+        ratio = min(25 / max_line_length, 1)
+    else:
+        ratio = 1
+    new_text_size = int(text_size * ratio)
+    line_spacing += int((text_size - new_text_size) / ratio)
+    text_size = new_text_size
+
+    output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
     print("Done")
 
 
