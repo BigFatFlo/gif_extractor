@@ -7,5 +7,5 @@ $(UI_CLASS): $(UI_NAME).ui
 	pyside2-uic $< > $@
 
 clean:
-	@$(RM) -f *.jpg
+	@$(RM) -f ./frames/*.jpg
 .PHONY: clean

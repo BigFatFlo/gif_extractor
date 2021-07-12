@@ -25,7 +25,7 @@
         (gimp-text-layer-set-justification text_layer_id TEXT-JUSTIFY-CENTER)
         (gimp-layer-resize-to-image-size text_layer_id)
         (while (< frame_nb nb_of_frames)
-            (set! frame_file_name (string-append "/home/fremis/Perso/gif_extractor/frame_" (number->string frame_nb)))
+            (set! frame_file_name (string-append "/home/fremis/Perso/gif_extractor/frames/frame_" (number->string frame_nb)))
             (set! frame_file_name (string-append frame_file_name ".jpg"))
             (set! layer_id (aref (cadr (gimp-file-load-layers 1 image_id frame_file_name)) 0))
             (gimp-image-insert-layer image_id layer_id 0 0)

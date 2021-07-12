@@ -23,24 +23,19 @@ class MainWindow(QMainWindow):
 
 
 def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_line_text, gif_name):
-    print("Start time = {}".format(start_time_ms))
-    print("End time = {}".format(end_time_ms))
-    print("Total time = {}".format(end_time_ms - start_time_ms))
     i=0
     ret = True
     frame_rate_s = video.get(cv2.CAP_PROP_FPS)
-    print("Frames per second using video.get(cv2.CAP_PROP_FPS) : {}".format(frame_rate_s))
     nb_of_frames = int((end_time_ms - start_time_ms) * frame_rate_s / 1000)
-    print("nb_of_frames = {}".format(nb_of_frames))
     video.set(cv2.CAP_PROP_POS_MSEC, start_time_ms)
     while(video.isOpened() and ret):
         if i == nb_of_frames:
             break
         ret, frame = video.read()
         frame = cv2.resize(frame, (608, 360), interpolation = cv2.INTER_AREA)
-        cv2.imwrite('frame_'+str(i)+'.jpg',frame)
+        cv2.imwrite('./frames/frame_'+str(i)+'.jpg',frame)
         i+=1
-        print("Processing image n°{}".format(i))
+        print("Processing frame n°{}".format(i))
 
     video.release()
     cv2.destroyAllWindows()
@@ -57,7 +52,7 @@ def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_l
     text_size = new_text_size
 
     output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
-    print("Done")
+    print("Gif created")
 
 
 class FrameSelectorUI():
