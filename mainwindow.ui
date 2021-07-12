@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>397</height>
+    <width>532</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,88 +16,123 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="startTimeLabel">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Start Time</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="startFrameLayout">
+      <item>
+       <layout class="QVBoxLayout" name="startTimeLayout">
+        <item>
+         <widget class="QLabel" name="startTimeLabel">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Start Time</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="startTimeLineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="startFrameLabel">
+        <property name="minimumSize">
+         <size>
+          <width>304</width>
+          <height>180</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>304</width>
+          <height>180</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Start Frame</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QTextEdit" name="startTimeTextEdit">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="tabChangesFocus">
-       <bool>true</bool>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="endFrameLayout">
+      <item>
+       <layout class="QVBoxLayout" name="endTimeLayout">
+        <item>
+         <widget class="QLabel" name="endTimeLabel">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>End Time</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="endTimeLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="endFrameLabel">
+        <property name="minimumSize">
+         <size>
+          <width>304</width>
+          <height>180</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>304</width>
+          <height>180</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>EndFrame</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
-    <item>
-     <widget class="QLabel" name="endTimeLabel">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>End Time</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="endTimeTextEdit">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="tabChangesFocus">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="topLineTextLabel">
       <property name="minimumSize">
        <size>
@@ -119,7 +154,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QTextEdit" name="topLineTextEdit">
       <property name="minimumSize">
        <size>
@@ -138,7 +173,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="bottomLineTextLabel">
       <property name="minimumSize">
        <size>
@@ -160,7 +195,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QTextEdit" name="bottomLineTextEdit">
       <property name="minimumSize">
        <size>
@@ -179,7 +214,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="gifNameLabel">
       <property name="minimumSize">
        <size>
@@ -201,7 +236,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QTextEdit" name="gifNameTextEdit">
       <property name="minimumSize">
        <size>
@@ -220,7 +255,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="extractButton">
       <property name="minimumSize">
        <size>
@@ -246,7 +281,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>418</width>
+     <width>532</width>
      <height>22</height>
     </rect>
    </property>
