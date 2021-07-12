@@ -67,24 +67,24 @@ class FrameSelector():
         self.new_frame()
 
     def new_frame(self):
-        time = int(self.ui.time_edit.text())
+        time = get_ms_from_timestamp(self.ui.time_edit.text())
         self.video.set(cv2.CAP_PROP_POS_MSEC, time)
         self.display_frame()
 
     def next_frame(self):
-        current_time = int(self.ui.time_edit.text())
+        current_time = get_ms_from_timestamp(self.ui.time_edit.text())
         frame_rate_s = video.get(cv2.CAP_PROP_FPS)
         ms_per_frame = int((1000/frame_rate_s))
         new_time = current_time + ms_per_frame
-        self.ui.time_edit.setText(str(new_time))
+        self.ui.time_edit.setText(get_timestamp_from_ms(new_time))
         self.display_frame()
 
     def previous_frame(self):
-        current_time = int(self.ui.time_edit.text())
+        current_time = get_ms_from_timestamp(self.ui.time_edit.text())
         frame_rate_s = video.get(cv2.CAP_PROP_FPS)
         ms_per_frame = int((1000/frame_rate_s))
         new_time = max(current_time - ms_per_frame, 0)
-        self.ui.time_edit.setText(str(new_time))
+        self.ui.time_edit.setText(get_timestamp_from_ms(new_time))
         self.new_frame()
 
     def display_frame(self):
@@ -95,6 +95,27 @@ class FrameSelector():
         imgQ = QImage(frame, 304, 180, QImage.Format_RGB888)
         pixmap.convertFromImage(imgQ, Qt.ColorOnly)
         self.ui.frame_label.setPixmap(pixmap)
+
+
+def get_ms_from_timestamp(timestamp):
+    times = timestamp.split(":")
+    hour = int(times[0])
+    minutes = int(times[1])
+    seconds = int(times[2])
+    ms = int(times[3])
+    time_in_ms = hour * 60 * 60 * 1000 + minutes * 60 * 1000 + seconds * 1000 + ms
+    return time_in_ms
+
+def get_timestamp_from_ms(time_in_ms):
+    time = time_in_ms
+    ms = time % 1000
+    time = (time - ms) // 1000
+    seconds = time % (60)
+    time = (time - seconds) // 60
+    minutes = time % (60)
+    time = (time - minutes) // 60
+    hours = time
+    return "{:02d}:{:02d}:{:02d}:{:03d}".format(hours, minutes, seconds, ms)
 
 
 if __name__ == "__main__":
