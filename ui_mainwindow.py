@@ -17,11 +17,37 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(740, 649)
+        MainWindow.resize(740, 773)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.videoComboBox = QComboBox(self.centralwidget)
+        self.videoComboBox.addItem("")
+        self.videoComboBox.setObjectName(u"videoComboBox")
+        self.videoComboBox.setMinimumSize(QSize(200, 25))
+        self.videoComboBox.setMaximumSize(QSize(200, 25))
+
+        self.verticalLayout.addWidget(self.videoComboBox, 0, Qt.AlignHCenter)
+
+        self.gifComboBox = QComboBox(self.centralwidget)
+        self.gifComboBox.addItem("")
+        self.gifComboBox.setObjectName(u"gifComboBox")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.gifComboBox.sizePolicy().hasHeightForWidth())
+        self.gifComboBox.setSizePolicy(sizePolicy1)
+        self.gifComboBox.setMinimumSize(QSize(200, 25))
+        self.gifComboBox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+
+        self.verticalLayout.addWidget(self.gifComboBox, 0, Qt.AlignHCenter)
+
         self.startFrameLayout = QHBoxLayout()
         self.startFrameLayout.setObjectName(u"startFrameLayout")
         self.startTimeLayout = QVBoxLayout()
@@ -156,6 +182,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.bottomLineTextEdit, 0, Qt.AlignHCenter)
 
+        self.videoNameLabel = QLabel(self.centralwidget)
+        self.videoNameLabel.setObjectName(u"videoNameLabel")
+        self.videoNameLabel.setMinimumSize(QSize(200, 25))
+        self.videoNameLabel.setMaximumSize(QSize(200, 25))
+        self.videoNameLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.videoNameLabel, 0, Qt.AlignHCenter)
+
+        self.videoNameLineEdit = QLineEdit(self.centralwidget)
+        self.videoNameLineEdit.setObjectName(u"videoNameLineEdit")
+        self.videoNameLineEdit.setMinimumSize(QSize(200, 25))
+        self.videoNameLineEdit.setMaximumSize(QSize(200, 25))
+
+        self.verticalLayout.addWidget(self.videoNameLineEdit, 0, Qt.AlignHCenter)
+
         self.gifNameLabel = QLabel(self.centralwidget)
         self.gifNameLabel.setObjectName(u"gifNameLabel")
         self.gifNameLabel.setMinimumSize(QSize(200, 25))
@@ -166,8 +207,13 @@ class Ui_MainWindow(object):
 
         self.gifNameLineEdit = QLineEdit(self.centralwidget)
         self.gifNameLineEdit.setObjectName(u"gifNameLineEdit")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.gifNameLineEdit.sizePolicy().hasHeightForWidth())
+        self.gifNameLineEdit.setSizePolicy(sizePolicy2)
         self.gifNameLineEdit.setMinimumSize(QSize(200, 25))
-        self.gifNameLineEdit.setMaximumSize(QSize(200, 25))
+        self.gifNameLineEdit.setMaximumSize(QSize(16777215, 25))
 
         self.verticalLayout.addWidget(self.gifNameLineEdit, 0, Qt.AlignHCenter)
 
@@ -194,6 +240,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.videoComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New video", None))
+
+        self.gifComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New gif", None))
+
         self.startTimeLabel.setText(QCoreApplication.translate("MainWindow", u"Start Time", None))
         self.startTimeLineEdit.setText(QCoreApplication.translate("MainWindow", u"00:00:00:000", None))
         self.previousStartFrameButton.setText(QCoreApplication.translate("MainWindow", u"Previous Frame", None))
@@ -206,6 +256,8 @@ class Ui_MainWindow(object):
         self.endFrameLabel.setText(QCoreApplication.translate("MainWindow", u"EndFrame", None))
         self.topLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Top Line Text", None))
         self.bottomLineTextLabel.setText(QCoreApplication.translate("MainWindow", u"Bottom Line Text", None))
+        self.videoNameLabel.setText(QCoreApplication.translate("MainWindow", u"Video name", None))
+        self.videoNameLineEdit.setText("")
         self.gifNameLabel.setText(QCoreApplication.translate("MainWindow", u"Gif name", None))
         self.gifNameLineEdit.setText("")
         self.extractButton.setText(QCoreApplication.translate("MainWindow", u"Extract", None))
