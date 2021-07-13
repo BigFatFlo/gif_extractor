@@ -14,12 +14,24 @@ from PySide2.QtGui import QTextCursor, QIcon, QPixmap, QImage, QPainter, QPen, Q
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtWidgets import QStyleFactory;
 import struct
+import json
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+
+def read_timestamps_json():
+    json_file_name = "timestamps.json"
+    try:
+        file = open(json_file_name, "r")
+    except IOError:
+        print("Failed to open timestamps file {}\n".format(json_file_name))
+        return ([], None)
+    timestamps_data = json.load(file)
+    return timestamps_data
 
 
 def launch_extraction(video, start_timestamp, end_timestamp, top_line_text, bottom_line_text, gif_name):
@@ -54,6 +66,22 @@ def launch_extraction(video, start_timestamp, end_timestamp, top_line_text, bott
     text_size = new_text_size
 
     output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
+
+    json_file_name = "timestamps.json"
+    try:
+        file = open(json_file_name, "r", encoding='utf8')
+    except IOError:
+        print("Failed to open timestamps file {} to read\n".format(json_file_name))
+        return
+    timestamps_data = json.load(file)
+    timestamps_data[gif_name] = {"start" : start_timestamp, "end" : end_timestamp}
+    try:
+        file = open(json_file_name, "w", encoding='utf8')
+    except IOError:
+        print("Failed to open timestamps file {} to write\n".format(json_file_name))
+        return
+    json.dump(timestamps_data, file, indent = 4, ensure_ascii=False)
+
     print("Gif created: {}".format(gif_name))
     print("Start timestamp = {}".format(start_timestamp))
     print("End timestamp = {}".format(end_timestamp))

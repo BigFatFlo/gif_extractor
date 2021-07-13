@@ -1,252 +1,259 @@
-groove:
+ça_pas_ça_gagné_perdu
+00:02:22:426
+00:02:25:492
+
+oh_ouais
+00:01:40:590
+00:01:43:615
+
+groove
 00:03:15:500
 00:03:18:350
 
-excusez:
+excusez
 00:03:22:700
 00:03:24:300
 
-boom baby:
+boom_baby
 00:03:55:000
 00:03:57:300
 
-berk berk berk:
+berk_berk_berk
 00:04:08:500
 00:04:10:500
 
-laisse moi deviner, toi tu es très intelligente:
+laisse_moi_deviner
 00:04:10:700
 00:04:14:000
 
-kronk se tape:
+kronk_se_tape
 00:05:56:000
 00:05:58:000
 
-ça vous auriez dû y réflechir:
+réflechir
 00:06:14:250
 00:06:18:000
 
-qu'on l'emmène:
+qu_on_l_emmène
 00:06:19:000
 00:06:20:750
 
-d'accord:
+d_accord
 00:06:22:500
 00:06:24:500
 
-Yzma frustrée:
+yzma_frustrée
 00:06:27:000
 00:06:30:550
 
-pas toucher:
+pas_toucher
 00:07:05:000
 00:07:08:000
 
-Yzma supplie:
+yzma_supplie
 00:07:33:250
 00:07:34:000
 
-Yzma grogne:
+yzma_grogne
 00:07:47:000
 00:07:49:000
 
-Mais oui c'est ça Kronk:
+mais_oui_c_est_ça_kronk
 00:07:52:000
 00:07:53:600
 
-Kronk biscuits
+kronk_biscuits
 00:07:54:900
 00:07:56:000
 
-Kronk plonge
+kronk_plonge
 00:07:56:000
 00:07:57:500
 
-Bouhou qu'il est vilain le lama
-Méchant Lama!
+méchant_lama
 00:39:52:750
 00:39:55:750
 
-Non seulement t'es moche mais en plus t'es stupide
+non_seulement_t_es_moche_mais_en_plus_t_es_stupide
 00:39:59:500
 00:40:01:600
 
-La coupe est pleine, j'arrête tout!
+la_coupe_est_pleine_j_arrête_tout
 00:49:31:500
 00:49:37:250
 
-Corde à sauter:
+corde_à_sauter
 00:58:08:824
 00:58:16:029
 
-bien reçu, je coupe les gaz:
+bien_reçu_je_coupe_les_gaz
 00:44:08:692
 00:44:10:045
 
-yzma fait son entrée:
+yzma_fait_son_entrée
 00:44:13:036
 00:44:14:897
 
-je déteste cette jungle:
+je_déteste_cette_jungle
 00:44:27:574
 00:44:31:558
 
-qu'est-ce que je m'amuse!
+qu_est-ce_que_je_m_amuse
 00:44:37:287
 00:44:40:255
 
-Yzma tombe:
+yzma_tombe
 00:44:40:287
 00:44:44:091
 
-Ne m'approche pas!
+ne_m_approche_pas
 00:44:48:328
 00:44:50:419
 
-Non non il a bon là:
+non_non_il_a_bon_là
 00:18:42:180
 00:18:43:729
 
-Regarde ce que je sais faire!
+regarde_ce_que_je_sais_faire
 00:18:36:729
 00:18:38:770
 
-Kronk panique:
+kronk_panique
 00:18:56:196
 00:18:58:401
 
-Kronk s'endort:
+kronk_s_endort
 00:54:31:829
 00:54:33:959
 
-Oh oui! Tous les morceaux se recollent
+oh_oui_tous_les_morceaux_se_recollent
 00:54:54:624
 00:54:57:369
 
-Yzma se réveille:
+yzma_se_réveille
 00:54:59:583
 00:55:00:754
 
-Kronk effrayé:
+kronk_effrayé
 00:55:00:804
 00:55:01:893
 
-J'espère que t'as une bonne excuse
+j_espère_que_t_as_une_bonne_excuse
 00:55:01:934
 00:55:05:385
 
-Ôte-toi de mon chemin!
+ôte-toi_de_mon_chemin
 00:11:43:590
 00:11:45:287
 
-Kronk et Yzma prêts:
+kronk_et_yzma_prêts
 00:11:48:073
 00:11:50:722
 
-Kronk et Yzma high five:
+kronk_et_yzma_high_five
 00:12:00:481
 00:12:01:681
 
-Yzma manigance:
+yzma_manigance
 00:12:04:178
 00:12:05:845
 
-Passons à table!
+passons_à_table
 00:12:44:743
 00:12:47:125
 
-Abracadabra
+abracadabra
 00:13:17:169
 00:13:18:437
 
-Ça va être délicieux!
+ça_va_être_délicieux
 00:13:26:759
 00:13:28:519
 
-Toc toc c'est moi!
+toc_toc_c_est_moi
 00:13:29:005
 00:13:30:109
 
-Allez, à table!
+allez_à_table
 00:13:30:825
 00:13:34:569
 
-Sans rancune:
+sans_rancune
 00:13:38:980
 00:13:42:184
 
-Riiiight:
+riiiight
 00:13:47:062
 00:13:48:947
 
-Rien à voir ici:
+rien_à_voir_ici
 00:13:59:513
 00:14:01:332
 
-Mes gougères aux épinards!
+mes_gougères_aux_épinards
 00:14:08:465
 00:14:10:701
 
-Ennui:
+ennui
 00:14:12:875
 00:14:16:742
 
-Je ne suis pas sûre:
+je_ne_suis_pas_sûre
 00:14:28:137
 00:14:31:013
 
-Riiight:
+riiight
 00:14:45:989
 00:14:47:562
 
-Kronk hésite:
+kronk_hésite
 00:14:48:046
 00:14:51:069
 
-2 sec:
+2_sec
 00:14:51:218
 00:14:53:152
 
-Oui, c'est passionnant:
+oui_c_est_passionnant
 00:15:11:128
 00:15:14:782
 
-Ne bois pas:
+ne_bois_pas
 00:15:20:939
 00:15:23:561
 
-Kronk ne sait pas boire:
+kronk_ne_sait_pas_boire
 00:15:26:959
 00:15:28:344
 
-Ça arrache:
+ça_arrache
 00:15:29:205
 00:15:33:278
 
-Tout va bien:
+tout_va_bien
 00:15:30:877
 00:15:33:278
 
-Yzma brocolis:
+yzma_brocolis
 00:16:01:369
 00:16:03:442
 
-Kronk confus:
+kronk_confus
 00:16:03:508
 00:16:04:278
 
-Yzma brocolis gros plan:
+yzma_brocolis_gros_plan
 00:16:12:123
 00:16:13:934
 
-Yzma sur la tête:
+yzma_sur_la_tête
 00:16:13:959
 00:16:15:196
 
-Plus de brocolis?
+plus_de_brocolis
 00:16:16:287
 00:16:17:540
 
-Yzma refrustrée:
+yzma_refrustrée
 00:16:17:590
 00:16:20:089
