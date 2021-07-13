@@ -22,7 +22,9 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
 
-def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_line_text, gif_name):
+def launch_extraction(video, start_timestamp, end_timestamp, top_line_text, bottom_line_text, gif_name):
+    start_time_ms = get_ms_from_timestamp(start_timestamp)
+    end_time_ms = get_ms_from_timestamp(end_timestamp)
     i=0
     ret = True
     frame_rate_s = video.get(cv2.CAP_PROP_FPS)
@@ -52,7 +54,9 @@ def launch_extraction(video, start_time_ms, end_time_ms, top_line_text, bottom_l
     text_size = new_text_size
 
     output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
-    print("Gif created")
+    print("Gif created: {}".format(gif_name))
+    print("Start timestamp = {}".format(start_timestamp))
+    print("End timestamp = {}".format(end_timestamp))
 
 
 class FrameSelectorUI():
@@ -152,15 +156,15 @@ if __name__ == "__main__":
     end_frame_selector = FrameSelector(cv2.VideoCapture('./test_video.mp4'), end_frame_ui)
 
     extract_button.clicked.connect(lambda: launch_extraction(cv2.VideoCapture('./test_video.mp4'),
-                                                             get_ms_from_timestamp(start_frame_selector.ui.time_edit.text()),
-                                                             get_ms_from_timestamp(end_frame_selector.ui.time_edit.text()),
+                                                             start_frame_selector.ui.time_edit.text(),
+                                                             end_frame_selector.ui.time_edit.text(),
                                                              top_line_text_edit.toPlainText(),
                                                              bottom_line_text_edit.toPlainText(),
                                                              gif_name_edit.text()))
 
     gif_name_edit.returnPressed.connect(lambda: launch_extraction(cv2.VideoCapture('./test_video.mp4'),
-                                                                  get_ms_from_timestamp(start_frame_selector.ui.time_edit.text()),
-                                                                  get_ms_from_timestamp(end_frame_selector.ui.time_edit.text()),
+                                                                  start_frame_selector.ui.time_edit.text(),
+                                                                  end_frame_selector.ui.time_edit.text(),
                                                                   top_line_text_edit.toPlainText(),
                                                                   bottom_line_text_edit.toPlainText(),
                                                                   gif_name_edit.text()))
