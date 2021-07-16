@@ -457,6 +457,16 @@
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
+     <widget class="QCheckBox" name="saveGifDataCheckBox">
+      <property name="text">
+       <string>Save gif data</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="extractButton">
       <property name="minimumSize">
        <size>

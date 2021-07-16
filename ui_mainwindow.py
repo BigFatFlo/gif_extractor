@@ -217,6 +217,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.gifNameLineEdit, 0, Qt.AlignHCenter)
 
+        self.saveGifDataCheckBox = QCheckBox(self.centralwidget)
+        self.saveGifDataCheckBox.setObjectName(u"saveGifDataCheckBox")
+        self.saveGifDataCheckBox.setChecked(True)
+
+        self.verticalLayout.addWidget(self.saveGifDataCheckBox, 0, Qt.AlignHCenter)
+
         self.extractButton = QPushButton(self.centralwidget)
         self.extractButton.setObjectName(u"extractButton")
         self.extractButton.setMinimumSize(QSize(200, 25))
@@ -260,6 +266,7 @@ class Ui_MainWindow(object):
         self.videoNameLineEdit.setText("")
         self.gifNameLabel.setText(QCoreApplication.translate("MainWindow", u"Gif name", None))
         self.gifNameLineEdit.setText("")
+        self.saveGifDataCheckBox.setText(QCoreApplication.translate("MainWindow", u"Save gif data", None))
         self.extractButton.setText(QCoreApplication.translate("MainWindow", u"Extract", None))
     # retranslateUi
 

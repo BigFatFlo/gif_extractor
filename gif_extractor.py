@@ -174,6 +174,7 @@ class GifExtractor():
         self.extract_button = self.window.ui.extractButton
         self.video_combo_box = self.window.ui.videoComboBox
         self.gif_combo_box = self.window.ui.gifComboBox
+        self.save_gif_data_checkbox = self.window.ui.saveGifDataCheckBox
         self.gif_box = HidableGifBox(self.gif_combo_box, self.window)
         self.gif_box.set_visibility(False)
         self.start_frame_ui = FrameSelectorUI(self.window.ui.startTimeLineEdit,
@@ -276,11 +277,12 @@ class GifExtractor():
 
         output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
 
-        timestamps_data = self.timestamps.timestamps_data
-        if video_name not in timestamps_data:
-            timestamps_data[video_name] = {}
-        timestamps_data[video_name][gif_name] = {"start" : start_timestamp, "end" : end_timestamp}
-        self.timestamps.write_timestamps_json(timestamps_data)
+        if self.save_gif_data_checkbox.isChecked():
+            timestamps_data = self.timestamps.timestamps_data
+            if video_name not in timestamps_data:
+                timestamps_data[video_name] = {}
+            timestamps_data[video_name][gif_name] = {"start" : start_timestamp, "end" : end_timestamp}
+            self.timestamps.write_timestamps_json(timestamps_data)
 
         print("Gif created: {}".format(gif_name))
         print("Start timestamp = {}".format(start_timestamp))
