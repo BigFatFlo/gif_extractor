@@ -24,8 +24,6 @@ class MainWindow(QMainWindow):
 
 
 class Timestamps(QObject):
-    updated = Signal()
-
     def __init__(self, file):
         QObject.__init__(self)
         self.file = file
@@ -41,15 +39,23 @@ class Timestamps(QObject):
             return
         self.timestamps_data = json.load(file)
 
-    def write_timestamps_json(self, data):
-        self.timestamps_data = data
+    def add_to_timestamps_json(self, video_name, gif_name, start_timestamp, end_timestamp):
+        if video_name not in self.timestamps_data:
+            # New video
+            self.timestamps_data[video_name] = {}
+            self.videos.append(video_name)
+            self.gifs[video_name] = []
+        if gif_name not in self.gifs[video_name]:
+            # New gif
+            self.gifs[video_name].append(gif_name)
+        # Add or update gif data
+        self.timestamps_data[video_name][gif_name] = {"start" : start_timestamp, "end" : end_timestamp}
         try:
             file = open(self.file, "w", encoding='utf8')
         except IOError:
             print("Failed to open timestamps file {} to write\n".format(json_file_name))
             return
         json.dump(self.timestamps_data, file, indent = 4, ensure_ascii=False)
-        self.fill_structure()
 
     def fill_structure(self):
         self.videos = []
@@ -59,7 +65,6 @@ class Timestamps(QObject):
             self.gifs[video_name] = []
             for gif in self.timestamps_data[video_name]:
                 self.gifs[video_name].append(gif)
-        self.updated.emit()
 
 
 class FrameSelectorUI():
@@ -160,7 +165,6 @@ class GifExtractor():
     def __init__(self, video_file, window):
         self.video_file = video_file
         self.window = window
-        self.count = 0
         self.init_ui()
         self.init_timestamps()
         self.init_frame_selectors()
@@ -200,7 +204,6 @@ class GifExtractor():
         self.end_frame_selector = FrameSelector(cv2.VideoCapture(self.video_file), self.end_frame_ui)
 
     def connect_signals(self):
-        self.timestamps.updated.connect(self.fill_video_box)
         self.video_combo_box.currentTextChanged[str].connect(lambda str: self.load_video_gifs(str))
         self.gif_combo_box.currentTextChanged[str].connect(lambda str: self.load_gif_data(str))
         self.extract_button.clicked.connect(self.launch_extraction)
@@ -210,7 +213,6 @@ class GifExtractor():
         self.gif_box.fill_box(video_name, self.timestamps)
 
     def load_gif_data(self, gif_name):
-        self.count += 1
         video_name = self.video_combo_box.currentText()
         if (video_name in self.timestamps.videos) and (gif_name in self.timestamps.gifs[video_name]):
             start_timestamp = self.timestamps.timestamps_data[video_name][gif_name]["start"]
@@ -278,11 +280,11 @@ class GifExtractor():
         output = subprocess.check_output(['./gimp_bash.sh', "{}".format(nb_of_frames), top_line_text, bottom_line_text, "{}".format(text_size), "{}".format(line_spacing), gif_name])
 
         if self.save_gif_data_checkbox.isChecked():
-            timestamps_data = self.timestamps.timestamps_data
-            if video_name not in timestamps_data:
-                timestamps_data[video_name] = {}
-            timestamps_data[video_name][gif_name] = {"start" : start_timestamp, "end" : end_timestamp}
-            self.timestamps.write_timestamps_json(timestamps_data)
+            self.timestamps.add_to_timestamps_json(video_name, gif_name, start_timestamp, end_timestamp)
+            # Update video list and gif list
+            self.fill_video_box()
+            self.video_combo_box.setCurrentText(video_name)
+            self.gif_combo_box.setCurrentText(gif_name)
 
         print("Gif created: {}".format(gif_name))
         print("Start timestamp = {}".format(start_timestamp))

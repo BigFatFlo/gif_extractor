@@ -283,6 +283,150 @@
         "l_air_de_rien_c_est_important": {
             "start": "00:16:55:574",
             "end": "00:16:57:517"
+        },
+        "donne_moi_ça": {
+            "start": "00:16:32:975",
+            "end": "00:16:34:722"
+        },
+        "yzma_énervée": {
+            "start": "00:16:41:344",
+            "end": "00:16:45:740"
+        },
+        "un_ptit_dessert": {
+            "start": "00:16:57:574",
+            "end": "00:16:59:353"
+        },
+        "yzma_certes": {
+            "start": "00:16:59:385",
+            "end": "00:17:00:984"
+        },
+        "et_un_café": {
+            "start": "00:17:03:180",
+            "end": "00:17:04:025"
+        },
+        "va_pour_un_ptit_café": {
+            "start": "00:17:04:057",
+            "end": "00:17:06:845"
+        },
+        "tu_finis_le_travail": {
+            "start": "00:17:06:877",
+            "end": "00:17:09:993"
+        },
+        "kronk_discret": {
+            "start": "00:17:13:214",
+            "end": "00:17:15:986"
+        },
+        "kronk_méfiant": {
+            "start": "00:17:19:738",
+            "end": "00:17:22:000"
+        },
+        "kronk_escaliers": {
+            "start": "00:17:24:041",
+            "end": "00:17:25:016"
+        },
+        "kronk_se_cache": {
+            "start": "00:17:30:918",
+            "end": "00:17:34:877"
+        },
+        "kronk_mission_accomplie": {
+            "start": "00:17:46:754",
+            "end": "00:17:50:713"
+        },
+        "dézoom_dramatique": {
+            "start": "00:17:54:221",
+            "end": "00:17:57:369"
+        },
+        "kronk_triste": {
+            "start": "00:17:58:442",
+            "end": "00:17:59:672"
+        },
+        "kronk_tiraillé": {
+            "start": "00:17:59:836",
+            "end": "00:18:01:795"
+        },
+        "kronk_ne_l_écoute_pas": {
+            "start": "00:18:06:795",
+            "end": "00:18:08:779"
+        },
+        "kronk_chemin_qui_balance": {
+            "start": "00:18:10:082",
+            "end": "00:18:13:025"
+        },
+        "de_peu": {
+            "start": "00:19:03:066",
+            "end": "00:19:07:968"
+        },
+        "j_aime_pas_cette_scène": {
+            "start": "00:20:03:770",
+            "end": "00:20:05:959"
+        },
+        "revenir_me_hanter": {
+            "start": "00:20:06:000",
+            "end": "00:20:09:328"
+        },
+        "please_pacha_kids": {
+            "start": "00:22:06:246",
+            "end": "00:22:07:697"
+        },
+        "chicha_grrr": {
+            "start": "00:22:49:722",
+            "end": "00:22:50:394"
+        },
+        "il_faut_que_je_lave_quelque_chose": {
+            "start": "00:22:50:697",
+            "end": "00:22:52:246"
+        },
+        "ça_pas_ça_crayon_rouge": {
+            "start": "00:23:35:467",
+            "end": "00:23:38:943"
+        },
+        "vraiment_pas_ça_crayon_rouge": {
+            "start": "00:23:42:729",
+            "end": "00:23:45:706"
+        },
+        "pas_toucher_lama": {
+            "start": "00:24:02:524",
+            "end": "00:24:04:312"
+        },
+        "deux_lamas_crient": {
+            "start": "00:24:07:991",
+            "end": "00:24:09:738"
+        },
+        "deux_lamas_crient_infini": {
+            "start": "00:24:08:565",
+            "end": "00:24:09:082"
+        },
+        "pacha_boîte_mains": {
+            "start": "00:24:37:417",
+            "end": "00:24:39:000"
+        },
+        "lama_qui_pue": {
+            "start": "00:24:57:130",
+            "end": "00:25:02:312"
+        },
+        "nez_qui_coule": {
+            "start": "01:06:10:253",
+            "end": "01:06:13:829"
+        },
+        "nervous_breakdown": {
+            "start": "00:25:08:032",
+            "end": "00:25:09:064"
+        },
+        "je_me_souviens_plus": {
+            "start": "00:25:09:950",
+            "end": "00:25:13:392"
+        },
+        "suspicious_kuzco": {
+            "start": "00:25:22:998",
+            "end": "00:25:24:114"
+        },
+        "c_est_toi_le_cerveau": {
+            "start": "00:25:32:383",
+            "end": "00:25:34:385"
+        },
+        "cerveau_bien_grand_mot": {
+            "start": "00:25:37:162",
+            "end": "00:25:39:845"
         }
     }
 }
