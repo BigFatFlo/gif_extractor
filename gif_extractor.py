@@ -267,7 +267,7 @@ class GifExtractor():
         cv2.destroyAllWindows()
 
         text_size = 50
-        line_spacing = 235
+        line_spacing = 200
         max_line_length = max(len(top_line_text), len(bottom_line_text))
         if max_line_length > 0:
             ratio = min(25 / max_line_length, 1)
@@ -298,6 +298,6 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
 
-    gif_extractor = GifExtractor('./test_video.mp4', window)
+    gif_extractor = GifExtractor('./test_video.avi', window)
 
     sys.exit(app.exec_())

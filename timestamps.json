@@ -427,6 +427,40 @@
         "cerveau_bien_grand_mot": {
             "start": "00:25:37:162",
             "end": "00:25:39:845"
+        },
+        "ouah_l_autre": {
+            "start": "00:36:23:799",
+            "end": "00:36:24:808"
+        },
+        "si_euh": {
+            "start": "00:36:24:004",
+            "end": "00:36:25:013"
+        },
+        "conjonction_différence": {
+            "start": "00:59:45:767",
+            "end": "00:59:48:414"
+        },
+        "jte_déteste": {
+            "start": "00:29:52:259",
+            "end": "00:29:53:045"
+        },
+        "yzma_punition_enfants": {
+            "start": "01:00:03:221",
+            "end": "01:00:21:918"
+        },
+        "escalade": {
+            "start": "00:41:13:770",
+            "end": "00:41:16:492"
+        }
+    },
+    "brice_de_nice": {
+        "jte_fascine": {
+            "start": "00:14:30:560",
+            "end": "00:14:31:920"
+        },
+        "viens_on_parle_de_moi": {
+            "start": "00:14:31:960",
+            "end": "00:14:33:800"
         }
     }
 }
